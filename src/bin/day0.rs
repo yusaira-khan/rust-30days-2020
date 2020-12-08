@@ -1,11 +1,10 @@
-use std::io::{self, Read};
+use std::io;
 
 fn main() -> io::Result<()> {
     let mut buffer = String::new();
     let stdin = io::stdin();
-    let mut handle = stdin.lock();
 
-    handle.read_to_string(&mut buffer)?;
+    stdin.read_line(&mut buffer)?;
     println!("Hello, World.");
     println!("{}", buffer);
     Ok(())
